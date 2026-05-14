@@ -1,20 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const fraunces = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Fraunces-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Fraunces-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const rebond = localFont({
+  src: [
+    {
+      path: "../../public/fonts/ESRebondGrotesque-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ESRebondGrotesque-Semibold.woff",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ESRebondGrotesque-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-rebond",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Nancy Lem Clitoral Massager | Lemon Sex Toy | Hello Nancy",
+  description:
+    "Meet Lem — your zesty new playmate. A clitoral massager with 12 unique intensities, medical-grade silicone, and whisper-quiet performance.",
 };
 
 export default function RootLayout({
@@ -25,9 +55,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${rebond.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="bg-background text-foreground font-body min-h-screen flex flex-col">
+        {children}
+      </body>
     </html>
   );
 }
