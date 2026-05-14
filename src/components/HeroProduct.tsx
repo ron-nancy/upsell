@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, StarFilled, ZoomIn } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 const SLIDES: { src: string; alt: string }[] = [
   {
@@ -111,7 +112,7 @@ export function HeroProduct() {
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-[#F7E16B]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={SLIDES[galleryIndex].src}
+                src={asset(SLIDES[galleryIndex].src)}
                 alt={SLIDES[galleryIndex].alt}
                 className="h-full w-full object-cover"
               />
@@ -171,7 +172,7 @@ export function HeroProduct() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={slide.src}
+                    src={asset(slide.src)}
                     alt={slide.alt}
                     width={80}
                     height={80}
@@ -234,7 +235,7 @@ export function HeroProduct() {
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   key={logo.src}
-                  src={logo.src}
+                  src={asset(logo.src)}
                   alt={logo.alt}
                   className={`${logo.height} w-auto object-contain`}
                 />
@@ -365,7 +366,7 @@ export function HeroProduct() {
                 <div className="flex gap-4 items-start">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/Image_Dr._Angela_Wright.png"
+                    src={asset("/images/Image_Dr._Angela_Wright.png")}
                     alt="Dr. Angela Wright"
                     width={80}
                     height={80}
@@ -402,7 +403,7 @@ export function HeroProduct() {
                 <div key={item.label} className="flex flex-col items-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={item.icon}
+                    src={asset(item.icon)}
                     alt=""
                     width={24}
                     height={24}

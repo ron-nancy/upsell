@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { PlayCircle } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 type Tile = {
   poster: string;
@@ -66,8 +67,8 @@ export function UGCGrid() {
                   loop
                   muted
                   playsInline
-                  poster={tile.poster}
-                  src={tile.src}
+                  poster={asset(tile.poster)}
+                  src={asset(tile.src)}
                 />
                 {tile.badge ? (
                   <span className="absolute top-3 left-3 bg-[#FF30CC] text-white text-xs font-display font-semibold px-3 py-1 rounded-full">

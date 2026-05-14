@@ -1,4 +1,5 @@
 import { MenuIcon, CartIcon, ChevronDown } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 export function Header() {
   return (
@@ -20,7 +21,7 @@ export function Header() {
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/Nancy_Logo_Pink.png"
+            src={asset("/images/Nancy_Logo_Pink.png")}
             alt="Nancy"
             width={180}
             height={56}

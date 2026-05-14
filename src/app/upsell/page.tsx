@@ -6,6 +6,7 @@ import {
   StarFilled,
   VerifiedBadge,
 } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 type Pack = {
   qty: number;
@@ -143,7 +144,7 @@ function ProductCard({
       {/* Lem product image — single hero shot, no other products */}
       <div className="relative aspect-square rounded-2xl overflow-hidden bg-[#F2E76B]">
         <img
-          src="/images/WhatsAppImage2023-11-18at14.19.19_2acc31e8.webp"
+          src={asset("/images/WhatsAppImage2023-11-18at14.19.19_2acc31e8.webp")}
           alt="Lem clitoral massager"
           className="w-full h-full object-cover"
         />
@@ -365,7 +366,7 @@ export default function UpsellPage() {
       <section className="py-10 px-4 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <img
-            src="/images/IMG_3324.jpg"
+            src={asset("/images/IMG_3324.jpg")}
             alt="Lem bundle"
             className="w-full aspect-[4/3] object-cover rounded-2xl"
           />
@@ -411,7 +412,7 @@ export default function UpsellPage() {
             </p>
           </div>
           <img
-            src="/images/IMG_3326.jpg"
+            src={asset("/images/IMG_3326.jpg")}
             alt="Lem gift bundle"
             className="order-1 md:order-2 w-full aspect-[4/3] object-cover rounded-2xl"
           />

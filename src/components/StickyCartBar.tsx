@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 export function StickyCartBar() {
   const [visible, setVisible] = useState(false);
@@ -31,7 +32,7 @@ export function StickyCartBar() {
       <div className="flex items-center gap-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/WhatsAppImage2023-11-18at14.19.19_2acc31e8.webp"
+          src={asset("/images/WhatsAppImage2023-11-18at14.19.19_2acc31e8.webp")}
           alt="Lem Clitoral Massager"
           width={56}
           height={56}

@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 export function ExpertsSay() {
   return (
     <section className="bg-[#FCF7ED] py-20 px-6">
@@ -13,7 +15,7 @@ export function ExpertsSay() {
           <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/Image_Dr._Angela_Wright.png"
+              src={asset("/images/Image_Dr._Angela_Wright.png")}
               alt="Dr. Angela Wright"
               className="w-full aspect-square object-cover rounded-2xl"
             />

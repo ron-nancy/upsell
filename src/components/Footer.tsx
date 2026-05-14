@@ -6,6 +6,7 @@ import {
   LinkedInIcon,
   TiktokIcon,
 } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 const resourceLinks = ["Guides", "Lem Comparison", "Wall of Came"];
 const policyLinks = [
@@ -34,7 +35,7 @@ export function Footer() {
           {/* Column 1 — Newsletter */}
           <div className="lg:col-span-2">
             <img
-              src="/images/Nancy_Logo_Pink.png"
+              src={asset("/images/Nancy_Logo_Pink.png")}
               alt="Nancy"
               className="h-12 w-auto"
             />

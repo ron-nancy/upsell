@@ -1,4 +1,5 @@
 import { StarFilled, VerifiedBadge } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 type Review = {
   name: string;
@@ -105,7 +106,7 @@ export function ReviewsGrid() {
               className="bg-white rounded-2xl p-4 border border-[#efe7d4] flex flex-col gap-3"
             >
               <img
-                src={review.image}
+                src={asset(review.image)}
                 alt={review.name}
                 className="w-full aspect-square object-cover rounded-xl"
               />

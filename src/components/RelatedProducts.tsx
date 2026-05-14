@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 type Product = {
   name: string;
   image: string;
@@ -53,7 +55,7 @@ export function RelatedProducts() {
             >
               <div className="bg-[#F2E76B] aspect-square flex items-center justify-center p-8 relative">
                 <img
-                  src={product.image}
+                  src={asset(product.image)}
                   alt={product.name}
                   className="w-full h-full object-contain"
                 />
