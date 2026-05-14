@@ -42,9 +42,9 @@ const rebond = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Nancy Lem Clitoral Massager | Lemon Sex Toy | Hello Nancy",
+  title: "Lem Bundle — Save up to 30% OFF | Hello Nancy",
   description:
-    "Meet Lem — your zesty new playmate. A clitoral massager with 12 unique intensities, medical-grade silicone, and whisper-quiet performance.",
+    "Add a Lem Bundle and save up to 30%. Pick 2 or 3 packs of Hello Nancy's Lem clitoral massager — best for besties, partners, and gifting.",
 };
 
 export default function RootLayout({
