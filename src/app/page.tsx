@@ -17,22 +17,22 @@ type Pack = {
   badge?: string;
 };
 
-// Lem retail = $89 single. 2-bundle 20% off = $89*2*0.8 = $142.40 (vs $178). 3-bundle 30% off = $89*3*0.7 = $186.90 (vs $267).
+// Lem retail = $89 single. 2-bundle 30% off = $89*2*0.7 = $124.60 (vs $178). 3-bundle 50% off = $89*3*0.5 = $133.50 (vs $267).
 const PACKS: Pack[] = [
   {
     qty: 3,
     label: "Lem Bundle",
-    sale: 186.9,
+    sale: 133.5,
     regular: 267.0,
-    discount: 30,
+    discount: 50,
     badge: "BEST VALUE",
   },
   {
     qty: 2,
     label: "Lem Bundle",
-    sale: 142.4,
+    sale: 124.6,
     regular: 178.0,
-    discount: 20,
+    discount: 30,
     badge: "MOST POPULAR",
   },
 ];
@@ -67,7 +67,7 @@ const REVIEWS = [
     name: "Christopher R.",
     rating: 4,
     quote:
-      "Three Lems means one in the bedroom, one in the bathroom, one in the suitcase. Worth every penny — the 30% off seals it.",
+      "Three Lems means one in the bedroom, one in the bathroom, one in the suitcase. Worth every penny — the 50% off seals it.",
   },
   {
     name: "Marge J.",
@@ -333,7 +333,7 @@ export default function UpsellPage() {
       {/* Hero offer */}
       <section className="py-6 px-4 max-w-5xl mx-auto">
         <h1 className="font-display font-semibold text-[32px] md:text-[48px] text-center text-[#1A1A1A] leading-[1.05] tracking-[-0.02em]">
-          Add a <span className="text-[#FF30CC]">Lem Bundle</span> and save up to 30% OFF
+          Add a <span className="text-[#FF30CC]">Lem Bundle</span> and save up to 50% OFF
         </h1>
         <h2 className="font-display font-semibold text-[20px] md:text-[24px] text-center text-[#1A1A1A] mt-4 leading-tight max-w-2xl mx-auto">
           One for home, one for travel, one for a bestie — the more Lems, the more savings
