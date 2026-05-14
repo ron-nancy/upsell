@@ -42,9 +42,9 @@ const rebond = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lem Bundle — Save up to 50% OFF | Hello Nancy",
+  title: "Lem Bundle — Save up to 40% OFF | Hello Nancy",
   description:
-    "Add a Lem Bundle and save up to 50%. Pick 2 or 3 packs of Hello Nancy's Lem clitoral massager — best for besties, partners, and gifting.",
+    "Add a Lem Bundle and save up to 40%. Pick 2 or 3 packs of Hello Nancy's Lem clitoral massager — best for besties, partners, and gifting.",
 };
 
 export default function RootLayout({
