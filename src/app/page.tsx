@@ -7,6 +7,10 @@ import {
   VerifiedBadge,
 } from "@/components/icons";
 import { asset } from "@/lib/asset";
+import { CountdownBar } from "@/components/upsell/CountdownBar";
+
+const NEXT_HREF = "/2/";
+const NEXT_LABEL = "No Thanks — show me a different offer";
 
 type Pack = {
   qty: number;
@@ -215,9 +219,12 @@ function ProductCard({
         <button className="mt-3 w-full bg-[#FF30CC] hover:bg-[#e62cb8] transition-colors text-white font-display font-bold text-[16px] uppercase tracking-wide py-4 rounded-full">
           Yes, Add This To My Order
         </button>
-        <button className="mt-3 w-full bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full">
-          No Thanks
-        </button>
+        <a
+          href={NEXT_HREF}
+          className="mt-3 w-full block text-center bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full"
+        >
+          {NEXT_LABEL}
+        </a>
       </div>
     </div>
   );
@@ -307,9 +314,12 @@ function CTAButtons() {
       <button className="w-full bg-[#FF30CC] hover:bg-[#e62cb8] transition-colors text-white font-display font-bold text-[16px] uppercase tracking-wide py-4 rounded-full">
         Yes, Add This To My Order
       </button>
-      <button className="w-full bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full">
-        No Thanks
-      </button>
+      <a
+        href={NEXT_HREF}
+        className="w-full block text-center bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full"
+      >
+        {NEXT_LABEL}
+      </a>
     </div>
   );
 }
@@ -319,6 +329,7 @@ export default function UpsellPage() {
 
   return (
     <div className="bg-[#FCF7ED] min-h-screen font-body text-[#1A1A1A]">
+      <CountdownBar step={1} />
       {/* Success bar — uses brand lime (matches sale-bar treatment on the live site) */}
       <div className="bg-[#E4F260] text-[#1A1A1A] py-3 px-4 text-center">
         <p className="font-display font-semibold text-[14px] md:text-[15px]">

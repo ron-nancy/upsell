@@ -8,6 +8,30 @@ import {
   ChevronDown,
 } from "@/components/icons";
 import { asset } from "@/lib/asset";
+import { CountdownBar } from "@/components/upsell/CountdownBar";
+
+/* ------------ Funnel routing — every "No Thanks" chains forward --- */
+
+const NEXT_HREF: Record<number, string> = {
+  1: "/2/",
+  2: "/3/",
+  3: "/4/",
+  4: "/5/",
+  5: "/thank-you/",
+};
+const NEXT_LABEL: Record<number, string> = {
+  1: "No Thanks — show me a different offer",
+  2: "No Thanks — try the next offer",
+  3: "No Thanks — try the next offer",
+  4: "No Thanks — one more offer to try",
+  5: "No Thanks — finish my order",
+};
+function resolveNext(step: number, overrideHref?: string, overrideLabel?: string) {
+  return {
+    href: overrideHref ?? NEXT_HREF[step] ?? "/thank-you/",
+    label: overrideLabel ?? NEXT_LABEL[step] ?? "No Thanks",
+  };
+}
 
 /* ----------------------------- Types ----------------------------- */
 
@@ -29,6 +53,12 @@ export type UpsellConfig = {
   step: number; // 1, 2, 3, 4, 5
   total: number; // 5
   persona: string; // short label, e.g. "Hen-Party Squad"
+  /** Override the auto-derived next-page link for "No Thanks" buttons */
+  nextHref?: string;
+  /** Override the auto-derived next-page label for "No Thanks" buttons */
+  nextLabel?: string;
+  /** Optional countdown duration in seconds. Defaults to 300 (5 minutes). */
+  countdownSeconds?: number;
 
   hero: {
     heading: string; // can include the word "Lem Bundle" — wrap in pink
@@ -148,12 +178,16 @@ function ProductCard({
   onSelect,
   image,
   imageBadge,
+  nextHref,
+  nextLabel,
 }: {
   packs: Pack[];
   selected: number;
   onSelect: (qty: number) => void;
   image: string;
   imageBadge?: string;
+  nextHref: string;
+  nextLabel: string;
 }) {
   return (
     <div className="bg-white rounded-3xl overflow-hidden border border-[#e6dcc8] p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -231,9 +265,12 @@ function ProductCard({
         <button className="mt-3 w-full bg-[#FF30CC] hover:bg-[#e62cb8] transition-colors text-white font-display font-bold text-[16px] uppercase tracking-wide py-4 rounded-full">
           Yes, Add This To My Order
         </button>
-        <button className="mt-3 w-full bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full">
-          No Thanks
-        </button>
+        <a
+          href={nextHref}
+          className="mt-3 w-full block text-center bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full"
+        >
+          {nextLabel}
+        </a>
       </div>
     </div>
   );
@@ -325,15 +362,18 @@ function CareIconsRow({ items }: { items: Icon[] }) {
   );
 }
 
-function CTAButtons() {
+function CTAButtons({ nextHref, nextLabel }: { nextHref: string; nextLabel: string }) {
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 space-y-3">
       <button className="w-full bg-[#FF30CC] hover:bg-[#e62cb8] transition-colors text-white font-display font-bold text-[16px] uppercase tracking-wide py-4 rounded-full">
         Yes, Add This To My Order
       </button>
-      <button className="w-full bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full">
-        No Thanks
-      </button>
+      <a
+        href={nextHref}
+        className="w-full block text-center bg-transparent border border-[#1A1A1A]/30 hover:bg-[#1A1A1A]/5 transition-colors text-[#1A1A1A] font-display font-semibold text-[15px] py-3.5 rounded-full"
+      >
+        {nextLabel}
+      </a>
     </div>
   );
 }
@@ -391,9 +431,12 @@ function FaqList({ heading, intro, faqs }: { heading: string; intro: string; faq
 
 export function UpsellShell({ config }: { config: UpsellConfig }) {
   const [selected, setSelected] = useState(config.defaultQty);
+  const next = resolveNext(config.step, config.nextHref, config.nextLabel);
 
   return (
     <div className="bg-[#FCF7ED] min-h-screen font-body text-[#1A1A1A]">
+      <CountdownBar step={config.step} durationSeconds={config.countdownSeconds ?? 300} />
+
       <div className="bg-[#E4F260] text-[#1A1A1A] py-3 px-4 text-center">
         <p className="font-display font-semibold text-[14px] md:text-[15px]">
           ✓ Your order and payment were successful! Expect an email confirmation in 10 minutes
@@ -424,6 +467,8 @@ export function UpsellShell({ config }: { config: UpsellConfig }) {
             onSelect={setSelected}
             image={config.hero.image}
             imageBadge={config.hero.imageBadge}
+            nextHref={next.href}
+            nextLabel={next.label}
           />
         </div>
       </section>
@@ -496,7 +541,7 @@ export function UpsellShell({ config }: { config: UpsellConfig }) {
         </div>
       </section>
 
-      <CTAButtons />
+      <CTAButtons nextHref={next.href} nextLabel={next.label} />
 
       <FaqList heading={config.faqHeading} intro={config.faqIntro} faqs={config.faqs} />
 
@@ -534,6 +579,8 @@ export function UpsellShell({ config }: { config: UpsellConfig }) {
           onSelect={setSelected}
           image={config.hero.image}
           imageBadge={config.hero.imageBadge}
+          nextHref={next.href}
+          nextLabel={next.label}
         />
       </section>
 
