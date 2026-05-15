@@ -19,7 +19,7 @@ const personas = [
   },
   {
     n: 2,
-    href: "/upsell/2/",
+    href: "/2/",
     title: "The Hen-Party Squad MOH",
     sub: "Three Lems in three pink boxes — the bachelorette gift everybody screenshots.",
     accent: "👰",
@@ -27,7 +27,7 @@ const personas = [
   },
   {
     n: 3,
-    href: "/upsell/3/",
+    href: "/3/",
     title: "The Frequent-Flyer Multi-Lifer",
     sub: "Lem at home, Lem in the suitcase, Lem at theirs. Stop pack-and-unpacking.",
     accent: "✈️",
@@ -35,7 +35,7 @@ const personas = [
   },
   {
     n: 4,
-    href: "/upsell/4/",
+    href: "/4/",
     title: "The Long-Distance Lover",
     sub: "His Lem. Her Lem. Same time zone, different continents.",
     accent: "💕",
@@ -43,7 +43,7 @@ const personas = [
   },
   {
     n: 5,
-    href: "/upsell/5/",
+    href: "/5/",
     title: "The Self-Care Maximalist",
     sub: "Bedside, bathroom, weekender. Three rooms, zero compromises.",
     accent: "🛁",
