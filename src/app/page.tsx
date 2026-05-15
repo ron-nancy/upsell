@@ -8,6 +8,7 @@ import {
 } from "@/components/icons";
 import { asset } from "@/lib/asset";
 import { CountdownBar } from "@/components/upsell/CountdownBar";
+import { PersonaSwitcher } from "@/components/upsell/PersonaSwitcher";
 
 const NEXT_HREF = "/2/";
 const NEXT_LABEL = "No Thanks — show me a different offer";
@@ -462,6 +463,8 @@ export default function UpsellPage() {
           <FeatureGrid />
         </div>
       </section>
+
+      <PersonaSwitcher currentStep={1} />
 
       {/* Footer */}
       <footer className="bg-white border-t border-[#e6dcc8] py-6 px-4 text-center">

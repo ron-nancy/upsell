@@ -9,6 +9,7 @@ import {
 } from "@/components/icons";
 import { asset } from "@/lib/asset";
 import { CountdownBar } from "@/components/upsell/CountdownBar";
+import { PersonaSwitcher } from "@/components/upsell/PersonaSwitcher";
 
 /* ------------ Funnel routing — every "No Thanks" chains forward --- */
 
@@ -589,6 +590,8 @@ export function UpsellShell({ config }: { config: UpsellConfig }) {
           <FeatureGrid features={config.features} />
         </div>
       </section>
+
+      <PersonaSwitcher currentStep={config.step} />
 
       <footer className="bg-white border-t border-[#e6dcc8] py-6 px-4 text-center">
         <p className="font-display text-[13px] text-[#1A1A1A]">
